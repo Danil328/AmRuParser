@@ -21,7 +21,7 @@ COLORS = {'black': 'https://auto.youla.ru/rossiya/cars/used/?yearMin=2010&carCol
 
 
 def get_hrefs(color):
-	parser = AmRuParser(start_url=COLORS[color], total_pages=10)
+	parser = AmRuParser(start_url=COLORS[color], total_pages=40)
 	hrefs = parser.get_hrefs()
 	parser.close_driver()
 	return color, hrefs
@@ -43,4 +43,4 @@ if __name__ == '__main__':
 
 	if not os.path.exists('../output'):
 		os.mkdir('../output')
-	df.to_csv('../output/colors.csv')
+	df.to_csv('../output/colors_v2.csv', index=False)
